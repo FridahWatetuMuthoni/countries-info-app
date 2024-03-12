@@ -7,6 +7,47 @@
   box-sizing: border-box;
 }
 
+html[data-theme="dark"] {
+  --elements: hsl(209, 23%, 22%);
+  --text-color: hsl(0, 0%, 100%);
+  --bg-color: hsl(207, 26%, 17%);
+  --input: hsl(0, 0%, 52%);
+  --countries-text: rgb(189, 181, 181);
+}
+
+html[data-theme="light"] {
+  --elements: hsl(0, 0%, 100%);
+  --text-color: hsl(200, 15%, 8%);
+  --bg-color: hsl(0, 0%, 98%);
+  --countries-text: gray;
+}
+
 body {
   font-family: "Nunito Sans", sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+p {
+  font-size: 16px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.content-wrapper {
+  background-color: var(--elements);
+  width: 70%;
+  margin: 100px auto;
+  height: 60vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
 }

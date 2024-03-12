@@ -1,0 +1,36 @@
+@use "../../assets/scss/variables" as *;
+
+.navigation {
+  background-color: var(--elements);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 30px;
+
+  h1 {
+    font-size: 0.85em;
+  }
+
+  p {
+    font-size: 12px;
+  }
+}
+
+.mode-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .navigation {
+    h1 {
+      font-size: 1.17em;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
