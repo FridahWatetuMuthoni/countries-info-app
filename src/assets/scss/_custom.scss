@@ -20,6 +20,7 @@ html[data-theme="light"] {
   --text-color: hsl(200, 15%, 8%);
   --bg-color: hsl(0, 0%, 98%);
   --countries-text: gray;
+  --box-shadow: 1px 1px 1px rgb(207, 200, 200);
 }
 
 body {
@@ -41,7 +42,6 @@ img {
 }
 
 .content-wrapper {
-  background-color: var(--elements);
   width: 70%;
   margin: 100px auto;
   height: 60vh;

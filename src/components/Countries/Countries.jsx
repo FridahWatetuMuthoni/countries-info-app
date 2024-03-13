@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function Countries({ country }) {
-  const { name, population, region, capital, flags, area } = country;
+  const { name, population, region, capital, flags, area, cca3 } = country;
 
   return (
-    <Link className="country" to={`/country/${name.common}`} state={country}>
+    <Link className="country" to={`/country/${cca3}`} state={country}>
       <img src={flags.png} alt={name.common} />
       <div className="country-content">
         <h2>{name.common}</h2>

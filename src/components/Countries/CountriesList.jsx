@@ -1,6 +1,7 @@
 import "./Countries.scss";
 import Countries from "./Countries";
 import useGlobalContext from "../../hooks/useGlobalContext";
+import FilterSearch from "../Filter-Search/FilterSearch";
 
 function CountriesList() {
   const { loading, errMsg, countries } = useGlobalContext();
@@ -20,12 +21,15 @@ function CountriesList() {
     );
   }
   return (
-    <section className="countries">
-      {countries && countries.length > 0
-        ? countries.map((country) => {
-            return <Countries key={country.name.common} country={country} />;
-          })
-        : null}
+    <section>
+      <FilterSearch />
+      <section className="countries">
+        {countries && countries.length > 0
+          ? countries.map((country) => {
+              return <Countries key={country.name.common} country={country} />;
+            })
+          : null}
+      </section>
     </section>
   );
 }
