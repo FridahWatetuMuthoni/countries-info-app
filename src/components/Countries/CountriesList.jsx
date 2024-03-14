@@ -5,6 +5,7 @@ import FilterSearch from "../Filter-Search/FilterSearch";
 
 function CountriesList() {
   const { loading, errMsg, countries } = useGlobalContext();
+
   if (loading) {
     return (
       <section className="content-wrapper">

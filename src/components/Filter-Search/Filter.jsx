@@ -1,8 +1,21 @@
+import useGlobalContext from "../../hooks/useGlobalContext";
+
 function Filter() {
-  const regions = ["Africa", "Europe", "Asia", "Oceania", "Americas"];
+  const { setFilter } = useGlobalContext();
+  const regions = ["All", "Africa", "Europe", "Asia", "Oceania", "Americas"];
+
+  const handleChange = (e) => {
+    setFilter(e.target.value);
+  };
   return (
-    <section>
-      <select name="region" id="region" className="select">
+    <section className="filter">
+      <select
+        name="region"
+        id="region"
+        className="select"
+        onChange={handleChange}
+      >
+        <option className="option">Choose A Region</option>
         {regions.map((region) => {
           return (
             <option className="option" value={region} key={region}>

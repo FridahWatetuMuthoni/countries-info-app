@@ -9,6 +9,34 @@ const GlobalProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [errMsg, setErrMsg] = useState("");
+  const [filter, setFilter] = useState(null);
+  const [filteredData, setFilteredData] = useState([]);
+
+  useEffect(() => {
+    if (filter == null) {
+      setFilteredData(countries);
+    } else if (filter.toLowerCase() === "all") {
+      setFilteredData(countries);
+    } else {
+      const data = countries.filter(
+        (country) => country.region.toLowerCase() === filter.toLowerCase()
+      );
+      setFilteredData(data);
+    }
+  }, [filter, countries]);
+
+  console.log(filteredData);
+
+  useEffect(() => {
+    if (search.trim() !== "") {
+      let data = countries.filter(
+        (country) => country.name.common.toLowerCase() === search.toLowerCase()
+      );
+      setFilteredData(data);
+    } else {
+      setFilteredData(countries);
+    }
+  }, [search, countries]);
 
   useEffect(() => {
     let isMounted = true;
@@ -16,13 +44,7 @@ const GlobalProvider = ({ children }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        let url;
-        if (search) {
-          url = `https://restcountries.com/v3.1/name/${search}`;
-        } else {
-          url = "https://restcountries.com/v3.1/all";
-        }
-
+        const url = "https://restcountries.com/v3.1/all";
         const response = await axios.get(url);
         const data = response.data;
 
@@ -43,11 +65,12 @@ const GlobalProvider = ({ children }) => {
   }, [search]);
 
   const data = {
-    countries,
+    countries: filteredData,
     search,
     setSearch,
     loading,
     errMsg,
+    setFilter,
   };
 
   return (

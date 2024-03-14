@@ -1,9 +1,10 @@
 .filter-search {
-  border: 1px solid magenta;
-  padding: 10px 30px;
-  display: flex;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
   width: 100%;
 }
 
@@ -18,12 +19,16 @@
   top: 17px;
 }
 
+.filter {
+  width: 100%;
+}
+
 .input {
   background-color: var(--elements);
   border: none;
   padding: 15px 20px 15px 50px;
   border-radius: 5px;
-  min-width: 350px;
+  min-width: 100%;
   outline: none;
   color: var(--text-color);
   font-size: 16px;
@@ -34,18 +39,63 @@
   border: none;
   padding: 15px 20px;
   border-radius: 5px;
-  min-width: 350px;
+  min-width: 100%;
   outline: none;
   color: var(--text-color);
   font-size: 16px;
   .option {
     padding: 10px 0;
-    display: inline;
+    display: inline-block;
     margin-bottom: 15px;
+    width: 100%;
   }
 }
 
 .input::placeholder {
   font-size: 15px;
   color: var(--text-color);
+}
+
+.search-content {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-menu {
+  top: 50px;
+  left: -2px;
+  border-radius: 0 0 5px 5px;
+  padding: 10px 20px;
+  max-height: 300px;
+  min-width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  cursor: pointer;
+  position: absolute;
+  z-index: 20;
+  background-color: var(--elements);
+
+  .dropdown-item {
+    list-style: none;
+    line-height: 1.5;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .filter-search {
+    grid-template-columns: 350px 350px;
+    padding: 10px 30px;
+  }
+
+  .dropdown-menu {
+    min-width: 350px;
+  }
 }
