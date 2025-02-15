@@ -161,7 +161,7 @@ function CountriesDetails() {
           </div>
         </section>
       </section>
-      <section className="map">
+      {/* <section className="map">
         {
           <GoogleMap
             key={mapKey}
@@ -170,7 +170,7 @@ function CountriesDetails() {
             center={center}
           />
         }
-      </section>
+      </section> */}
     </section>
   );
 }
